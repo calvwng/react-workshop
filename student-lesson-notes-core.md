@@ -18,6 +18,17 @@ Docs: https://reactjs.org/docs/introducing-jsx.html
 
 JSX Confusing Parts: https://reacttraining.com/blog/jsx-the-confusing-parts/
 
+### Personal Notes
+
+* JSX transpiles (through Babel?) to `ReactDOM.createElement(...)`
+* JSX {} braces can process JS expressions (that return results?), not statements (e.g. for/if statement)
+    * Can include more JSX like `{err && <p>{err}</p>}` which can short circuit
+* https://react-icons.github.io/react-icons/icons?name=fa
+* `{props.children}` in JSX allows for slot-like composition into a component
+* reacttraining.com/tree/
+* imperative = how you want things to work, declarative = what you want with tags in structure
+* array of JSX works, but you'd have to provide unique key values
+
 ---
 
 ## Lesson 2: State
@@ -95,6 +106,7 @@ useEffect(() => {
 
 - Docs: "Using the Effect Hook": https://reactjs.org/docs/hooks-effect.html
 - A very long but complete guide to useEffect: https://overreacted.io/a-complete-guide-to-useeffect/
+- http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
 ---
 

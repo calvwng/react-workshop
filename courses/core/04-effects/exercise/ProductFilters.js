@@ -3,7 +3,23 @@ import ProductFilterList from 'YesterTech/ProductFilterList'
 import { getCategories } from './utils'
 
 function ProductFilters() {
-  const categories = null
+  const [categories, setCategories] = useState();
+
+  useEffect(() => {
+    let isCurrent = true;
+
+    getCategories().then(categories => {
+      if (isCurrent) {
+        setCategories(categories);
+        isCurrent = true;
+      }
+    });
+
+    // cleanup function
+    return () => {
+      isCurrent = false;
+    };
+  }, []);
 
   if (!categories) return <div>Loading Filters...</div>
 
