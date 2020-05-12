@@ -6,18 +6,17 @@ function ProductFilters() {
   const [categories, setCategories] = useState();
 
   useEffect(() => {
-    let isCurrent = true;
+    let isCurrentEffect = true;
 
     getCategories().then(categories => {
-      if (isCurrent) {
+      if (isCurrentEffect) {
         setCategories(categories);
-        isCurrent = true;
       }
     });
 
-    // cleanup function
+    // cleanup function executed before rerenders and on umount
     return () => {
-      isCurrent = false;
+      isCurrentEffect = false;
     };
   }, []);
 

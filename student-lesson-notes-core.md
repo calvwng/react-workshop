@@ -107,12 +107,21 @@ useEffect(() => {
 - Docs: "Using the Effect Hook": https://reactjs.org/docs/hooks-effect.html
 - A very long but complete guide to useEffect: https://overreacted.io/a-complete-guide-to-useeffect/
 - http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+- React Conf Hooks | https://www.youtube.com/watch?time_continue=459&v=dpw9EHDh2bM&feature=emb_logo
 
 ---
 
 ## Lesson 5: Routing
 
-// TODO
+- Switch (component like switch statement), Route (with exact attribute for exact matching), Link components
+- We want to put the component within the Route element so we can pass props to it and such
+- render prop pattern:
+
+  ```js
+  render={(props) => {
+    return <BrowseProducts whatever={123} {...props} />
+  }}
+  ```
 
 ---
 
@@ -122,6 +131,12 @@ useEffect(() => {
 - `useReducer` is the reducer pattern for local state. It's an alternative to using `useState`. `useReducer` can be good for complex local state.
 
 - `useReducer` docs: https://reactjs.org/docs/hooks-reference.html#usereducer
+
+- Redux allows is a middleman organized as a pub/sub state system that uses reducers.
+- store {}, dispatch to describe change
+- Redux's `reducer(state, action)` looks at dispatched `action.type` and returns obj to completely replace store with desired modifications
+
+- ended up being more code than using useState in this case, but it can help avoid jumbled state by modeling a finite state machine better
 
 ---
 
@@ -149,8 +164,27 @@ useEffect(() => {
 
 ---
 
+## Bonus: Performance Optimization
+
+- `useMemo` can help with performance by memoizing (remembering) the result of a long-running function when given specific arguments
+- `useCallback` can help with performance by memoizing (remembering) a long-running function itself (same memory address)
+- `React.memo` for "pure" components
+- Don't want to memoize everything, obviously.
+
+---
+
 ## Lesson 9: Hooks Composition
 
 - When you want to make your own hook, that just means wrapping React hooks with your code together. Writing generic hooks that can encapsulate logic that you often re-write (for example, a `useEffect` with a basic cleanup function) is a great way to clean up your components.
 
 - `useCallback` docs: https://reactjs.org/docs/hooks-reference.html#usecallback
+
+---
+
+## Parting Notes
+
+- Explore patterns like Compound Components and Higher Order Components
+- https://overreacted.io/ is reading material to understand technical details leading to the core lessons
+- Reach UI is a low fidelity React-based design system with accessible, barebones components
+- https://reacttraining.com/blog/
+- Portals and Context are how you'd interface with non-React components and such
